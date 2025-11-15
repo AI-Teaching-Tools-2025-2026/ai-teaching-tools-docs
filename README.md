@@ -1,3 +1,6 @@
+## Notice
+This project is defunct until user-facing documentation is required.
+
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
