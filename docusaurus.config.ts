@@ -31,10 +31,8 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/AI-Teaching-Tools-2025-2026/ai-teaching-tools/',
         },
-
-        // ❌ Blog completely disabled
         blog: false,
 
         theme: {
@@ -65,7 +63,7 @@ const config: Config = {
           label: 'Docs', // renamed from Tutorial (recommended)
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/AI-Teaching-Tools-2025-2026/ai-teaching-tools',
           label: 'GitHub',
           position: 'right',
         },
@@ -85,28 +83,11 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
+          title: 'Contributions',
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/AI-Teaching-Tools-2025-2026/ai-teaching-tools',
             },
           ],
         },

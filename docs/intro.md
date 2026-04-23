@@ -2,41 +2,101 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Project Overview
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Empowering Instructors with AI-Enhanced Teaching Tools
 
-## Getting Started
+Modern textbook publishers like Pearson and McGraw Hill provide integrated learning tools, but these systems come with significant limitations. Access is often locked behind expensive paywalls, forcing both students and instructors to purchase bundled materials. Additionally, these platforms offer little flexibility, limiting an instructor’s ability to customize content or tailor resources to their course.
 
-Get started by **creating a new site**.
+Our project addresses these challenges by providing an **open, customizable, and instructor-focused learning platform**.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+---
 
-### What you'll need
+## Why We Built This
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+We wanted to support instructors who use **open-source textbooks** by giving them the same — or better — tools than proprietary platforms, without the restrictions.
 
-## Install dependencies.
+### Problems with Existing Solutions
+- **Paywalls**: Learning tools are bundled with paid textbooks  
+- **Limited customization**: Instructors cannot easily modify or adapt content  
+- **Restricted access**: Students must purchase materials to participate fully  
 
-```bash
-npm install
-```
+---
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## Our Solution
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+We built an **Instructor-Facing Learning Management Web App** designed to:
 
-## Start your site
+- **Support open education**
+- **Automate content generation**
+- **Give instructors full control over their teaching materials**
 
-Run the development server:
+### Key Benefits
 
-```bash
-npm run start
-```
+- **Efficient**  
+  Upload open-source textbooks and automatically generate structured question banks.
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+- **Customizable**  
+  Edit questions, quizzes, and AI tutor behavior to match your course exactly.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+- **Scalable**  
+  Reuse content across courses and semesters with minimal effort.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+---
+
+## Core Features
+
+### 📚 Question Bank
+
+The system automatically builds a structured question bank organized by chapters and sections.
+
+- Upload a textbook → system generates a deterministic identifier using hashing  
+- Metadata and content are stored in MongoDB  
+- Question banks are auto-generated at the chapter level  
+- Questions can be reused across quizzes and AI interactions  
+
+---
+
+### 📝 Quiz Builder
+
+Instructors can create and manage quizzes with full flexibility:
+
+- Generate quizzes using AI  
+- Manually create and edit questions  
+- Preview and refine assessments  
+- Align quizzes with course learning objectives  
+
+---
+
+### 🤖 AI Tutor
+
+The AI Tutor acts as a **course-aware teaching assistant**.
+
+#### Instructor Controls
+- Choose from preset personas:
+  - Socratic Tutor  
+  - Study Buddy  
+  - Quiz Master  
+- Or fully customize teaching style and behavior  
+
+#### How It Works
+- Student asks a question  
+- Relevant textbook sections are retrieved from MongoDB  
+- Content is injected into the AI context  
+- Response is generated based on:
+  - Course material  
+  - Instructor-defined teaching style  
+
+This ensures responses are **accurate, contextual, and aligned with the course**.
+
+---
+
+## Summary
+
+This project bridges the gap between **open educational resources** and **modern AI-powered learning tools** by giving instructors:
+
+- Full ownership of their content  
+- Powerful automation tools  
+- A customizable AI teaching assistant  
+
+All without the constraints of traditional publishing platforms.

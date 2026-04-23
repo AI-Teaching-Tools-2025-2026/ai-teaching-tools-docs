@@ -26,6 +26,34 @@ const features = [
   },
 ];
 
+const team = [
+  {
+    name: 'Brendon Tran',
+    major: 'Computer Science',
+    img: '/img/brendon_headshot.png',
+  },
+  {
+    name: 'Dylan Liu',
+    major: 'Scum',
+    img: '/img/dylan_headshot.png',
+  },
+  {
+    name: 'Annabel Wang',
+    major: 'Computer Science',
+    img: '/img/annabel_headshot.jpg',
+  },
+  {
+    name: 'Katie Kimura',
+    major: 'Computer Science',
+    img: '/img/katie_headshot.jpg',
+  },
+  {
+    name: 'Alina Hyk',
+    major: 'Computer Science',
+    img: '/img/team/member5.jpg',
+  },
+];
+
 function Hero() {
   return (
     <section className={styles.hero}>
@@ -57,9 +85,21 @@ function Hero() {
           <Link className="button button--primary button--lg" to="/docs/intro">
             Get Started
           </Link>
-          <Link className="button button--secondary button--lg" to="#features">
+
+          <Link className="button button--primary button--lg" to="#features">
             Explore Features
           </Link>
+
+          <motion.div whileHover={{ y: -2 }}>
+            <Link
+              className="button button--primary button--lg"
+              to="https://ai-teaching-tools-hosting.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Site
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -130,6 +170,53 @@ function Workflow() {
   );
 }
 
+function Team() {
+  const firstRow = team.slice(0, 2);
+  const secondRow = team.slice(2);
+
+  return (
+    <section className={styles.team}>
+      <div className="container text--center">
+        <Heading as="h2">Meet the Team</Heading>
+
+        {/* Row 1 */}
+        <div className="row margin-top--xl" style={{ justifyContent: 'center' }}>
+          {firstRow.map((member, i) => (
+            <div key={i} className="col col--3">
+              <motion.div className={styles.teamCard} whileHover={{ scale: 1.05 }}>
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className={styles.headshot}
+                />
+                <h3>{member.name}</h3>
+                <p>{member.major}</p>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 */}
+        <div className="row margin-top--lg" style={{ justifyContent: 'center' }}>
+          {secondRow.map((member, i) => (
+            <div key={i} className="col col--3">
+              <motion.div className={styles.teamCard} whileHover={{ scale: 1.05 }}>
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className={styles.headshot}
+                />
+                <h3>{member.name}</h3>
+                <p>{member.major}</p>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <Layout title="AI Teaching Platform">
@@ -137,6 +224,7 @@ export default function Home() {
       <main>
         <Features />
         <Workflow />
+        <Team />
       </main>
     </Layout>
   );
