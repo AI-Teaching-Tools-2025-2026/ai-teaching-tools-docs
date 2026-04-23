@@ -86,3 +86,11 @@
   justify-content: center;
   font-weight: bold;
 }
+
+.headshot {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
