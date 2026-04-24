@@ -11,11 +11,11 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  url: 'https://AI-Teaching-Tools-2025-2026.github.io',
+  baseUrl: '/ai-teaching-tools-docs/',
 
-  organizationName: 'facebook',
-  projectName: 'docusaurus',
+  organizationName: 'AI-Teaching-Tools-2025-2026',
+  projectName: 'ai-teaching-tools-docs',
 
   onBrokenLinks: 'throw',
 
