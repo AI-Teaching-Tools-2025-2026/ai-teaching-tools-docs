@@ -30,27 +30,27 @@ const team = [
   {
     name: 'Brendon Tran',
     major: 'Computer Science',
-    img: '/img/brendon_headshot.png',
+    img: '/ai-teaching-tools-docs/img/brendon_headshot.png',
   },
   {
     name: 'Dylan Liu',
     major: 'Scum',
-    img: '/img/dylan_headshot.png',
+    img: '/ai-teaching-tools-docs/img/dylan_headshot.png',
   },
   {
     name: 'Annabel Wang',
     major: 'Computer Science',
-    img: '/img/annabel_headshot.jpg',
+    img: '/ai-teaching-tools-docs/img/annabel_headshot.jpg',
   },
   {
     name: 'Katie Kimura',
     major: 'Computer Science',
-    img: '/img/katie_headshot.jpg',
+    img: '/ai-teaching-tools-docs/img/katie_headshot.jpg',
   },
   {
     name: 'Alina Hyk',
     major: 'Computer Science',
-    img: '/img/team/member5.jpg',
+    img: '/ai-teaching-tools-docs/img/team/member5.jpg',
   },
 ];
 
@@ -70,7 +70,6 @@ function Hero() {
         <motion.p
           className={styles.heroSubtitle}
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
           Upload open textbooks, generate structured question banks, build quizzes, and deploy an AI tutor tailored to your course.
@@ -86,9 +85,10 @@ function Hero() {
             Get Started
           </Link>
 
-          <Link className="button button--primary button--lg" to="#features">
+          {/* FIXED: replaced broken Link anchor with <a> */}
+          <a className="button button--primary button--lg" href="#features">
             Explore Features
-          </Link>
+          </a>
 
           <motion.div whileHover={{ y: -2 }}>
             <Link
@@ -179,16 +179,11 @@ function Team() {
       <div className="container text--center">
         <Heading as="h2">Meet the Team</Heading>
 
-        {/* Row 1 */}
         <div className="row margin-top--xl" style={{ justifyContent: 'center' }}>
           {firstRow.map((member, i) => (
             <div key={i} className="col col--3">
               <motion.div className={styles.teamCard} whileHover={{ scale: 1.05 }}>
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className={styles.headshot}
-                />
+                <img src={member.img} alt={member.name} className={styles.headshot} />
                 <h3>{member.name}</h3>
                 <p>{member.major}</p>
               </motion.div>
@@ -196,16 +191,11 @@ function Team() {
           ))}
         </div>
 
-        {/* Row 2 */}
         <div className="row margin-top--lg" style={{ justifyContent: 'center' }}>
           {secondRow.map((member, i) => (
             <div key={i} className="col col--3">
               <motion.div className={styles.teamCard} whileHover={{ scale: 1.05 }}>
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className={styles.headshot}
-                />
+                <img src={member.img} alt={member.name} className={styles.headshot} />
                 <h3>{member.name}</h3>
                 <p>{member.major}</p>
               </motion.div>
