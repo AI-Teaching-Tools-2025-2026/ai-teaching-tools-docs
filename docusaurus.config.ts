@@ -91,6 +91,19 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Contact',
+          items: [
+            {
+              label: 'Email',
+              href: 'mailto:cscapstone2026@protonmail.com',
+            },
+            {
+              label: 'GitHub Issues',
+              href: 'https://github.com/AI-Teaching-Tools-2025-2026/ai-teaching-tools/issues',
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} AI Teaching Tool. Built with Docusaurus.`,
     },
