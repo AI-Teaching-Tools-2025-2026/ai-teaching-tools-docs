@@ -4,127 +4,161 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import { motion } from 'framer-motion';
-import { BookOpen, Database, PenTool, Bot } from 'lucide-react';
+import { Upload, Cpu, GraduationCap, ArrowRight } from 'lucide-react';
 
 import styles from './index.module.css';
 
+/* ─── Feature data ───────────────────────────────────────────── */
 const features = [
   {
+    tag: 'Automated',
     title: 'Question Bank Generator',
-    icon: <Database size={28} />,
-    desc: 'Automatically builds structured question banks from open-source textbooks, organized by chapter and section.',
+    desc: 'Builds structured question banks from open-source textbooks, organized by chapter and section. One upload, hundreds of questions.',
+    illustration: (
+      <img
+        src="/ai-teaching-tools-docs/img/quiz-builder.png"
+        alt="Quiz Builder screenshot"
+        className={styles.featureScreenshot}
+      />
+    ),
   },
   {
+    tag: 'Interactive',
     title: 'Quiz Builder',
-    icon: <PenTool size={28} />,
-    desc: 'Create, edit, and manage quizzes using AI-generated or instructor-written questions.',
+    desc: 'Create, edit, and manage quizzes with AI-generated or instructor-written questions — multiple choice, short answer, and more.',
+    illustration: (
+      <img
+        src="/ai-teaching-tools-docs/img/quiz-builder.png"
+        alt="Quiz Builder screenshot"
+        className={styles.featureScreenshot}
+      />
+    ),
   },
   {
-    title: 'AI Tutor (Course-Aware)',
-    icon: <Bot size={28} />,
-    desc: 'A configurable tutor that grounds responses in your course materials and instructor-defined teaching style.',
+    tag: 'Course-Aware',
+    title: 'AI Tutor',
+    desc: 'A configurable tutor grounded in your syllabus and teaching style. Students get help that actually matches the course.',
+    illustration: (
+      <img
+        src="/ai-teaching-tools-docs/img/ai-chatbot.png"
+        alt="AI Chatbot screenshot"
+        className={styles.featureScreenshot}
+      />
+    ),
   },
 ];
 
+/* ─── Steps ──────────────────────────────────────────────────── */
+const steps = [
+  {
+    number: '01',
+    title: 'Upload Textbook',
+    desc: 'Drop in any open-access PDF. The system parses chapters, sections, and key concepts automatically.',
+    icon: <Upload size={20} />,
+  },
+  {
+    number: '02',
+    title: 'Generate Content',
+    desc: 'AI produces structured question banks and quiz sets tuned to your course objectives.',
+    icon: <Cpu size={20} />,
+  },
+  {
+    number: '03',
+    title: 'Teach with AI',
+    desc: 'Students interact with a tutor that knows your syllabus, your tone, and your material.',
+    icon: <GraduationCap size={20} />,
+  },
+];
+
+/* ─── Team ───────────────────────────────────────────────────── */
 const team = [
-  {
-    name: 'Brendon Tran',
-    major: 'Computer Science',
-    img: '/ai-teaching-tools-docs/img/brendon_headshot.png',
-  },
-  {
-    name: 'Dylan Liu',
-    major: 'Scum',
-    img: '/ai-teaching-tools-docs/img/dylan_headshot.png',
-  },
-  {
-    name: 'Annabel Wang',
-    major: 'Computer Science',
-    img: '/ai-teaching-tools-docs/img/annabel_headshot.jpg',
-  },
-  {
-    name: 'Katie Kimura',
-    major: 'Computer Science',
-    img: '/ai-teaching-tools-docs/img/katie_headshot.jpg',
-  },
-  {
-    name: 'Alina Hyk',
-    major: 'Computer Science',
-    img: '/ai-teaching-tools-docs/img/team/member5.jpg',
-  },
+  { name: 'Brendon Tran', role: 'Computer Science', img: '/ai-teaching-tools-docs/img/brendon_headshot.png' },
+  { name: 'Dylan Liu', role: 'Computer Science', img: '/ai-teaching-tools-docs/img/dylan_headshot_real.jpg' },
+  { name: 'Annabel Wang', role: 'Computer Science', img: '/ai-teaching-tools-docs/img/annabel_headshot.jpg' },
+  { name: 'Katie Kimura', role: 'Computer Science', img: '/ai-teaching-tools-docs/img/katie_headshot.jpg' },
+  { name: 'Alina Hyk', role: 'Computer Science', img: '/ai-teaching-tools-docs/img/alina_headshot.jpeg' },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: 'easeOut' },
+  }),
+};
+
+/* ─── Page sections ──────────────────────────────────────────── */
 function Hero() {
   return (
     <section className={styles.hero}>
-      <div className="container text--center">
-        <motion.h1
-          className={styles.heroTitle}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          Instructor Tools for{' '}
-          <span className={styles.gradient}>Open Education</span>
+      <div className={styles.heroNoise} />
+      <div className={styles.heroGrid} />
+      <div className="container">
+        <div className={styles.heroPill}>
+          <span className={styles.heroPillDot} />
+          Open Education · AI-Powered
+        </div>
+        <motion.h1 className={styles.heroTitle} variants={fadeUp} initial="hidden" animate="visible" custom={0}>
+          Teaching tools that{' '}
+          <span className={styles.heroAccent}>actually teach.</span>
         </motion.h1>
-
-        <motion.p
-          className={styles.heroSubtitle}
-          initial={{ opacity: 0, y: 30 }}
-          transition={{ delay: 0.1 }}
-        >
-          Upload open textbooks, generate structured question banks, build quizzes, and deploy an AI tutor tailored to your course.
+        <motion.p className={styles.heroSub} variants={fadeUp} initial="hidden" animate="visible" custom={1}>
+          Upload open textbooks. Generate question banks. Build quizzes. Deploy a course-aware AI tutor — all from one platform built for instructors.
         </motion.p>
-
-        <motion.div
-          className={styles.heroButtons}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <Link className="button button--primary button--lg" to="/docs/intro">
-            Get Started
+        <motion.div className={styles.heroActions} variants={fadeUp} initial="hidden" animate="visible" custom={2}>
+          <Link className={styles.ctaPrimary} to="https://ai-teaching-tools-hosting.vercel.app" target="_blank" rel="noopener noreferrer">
+            Try the Live Site <ArrowRight size={16} />
           </Link>
-
-          {/* FIXED: replaced broken Link anchor with <a> */}
-          <a className="button button--primary button--lg" href="#features">
-            Explore Features
-          </a>
-
-          <motion.div whileHover={{ y: -2 }}>
-            <Link
-              className="button button--primary button--lg"
-              to="https://ai-teaching-tools-hosting.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Site
-            </Link>
-          </motion.div>
+          <Link className={styles.ctaSecondary} to="/docs/intro">Read the Docs</Link>
+        </motion.div>
+        <motion.div className={styles.heroStats} variants={fadeUp} initial="hidden" animate="visible" custom={3}>
+          {[
+            { num: '3', label: 'Core Tools' },
+            { num: 'OER', label: 'Open Textbook Ready' },
+            { num: 'AI', label: 'Claude-Powered Tutor' },
+          ].map((s) => (
+            <div key={s.label} className={styles.heroStat}>
+              <span className={styles.heroStatNum}>{s.num}</span>
+              <span className={styles.heroStatLabel}>{s.label}</span>
+            </div>
+          ))}
         </motion.div>
       </div>
-
-      <div className={styles.glow}></div>
     </section>
   );
 }
 
 function Features() {
   return (
-    <section id="features" className={styles.features}>
+    <section id="features" className={styles.section}>
       <div className="container">
-        <Heading as="h2" className="text--center">
-          Core Features
-        </Heading>
-
-        <div className="row margin-top--xl">
+        <div className={styles.sectionHeader}>
+          <p className={styles.sectionEyebrow}>What's included</p>
+          <Heading as="h2" className={styles.sectionTitle}>Everything an instructor needs</Heading>
+          <p className={styles.sectionSub}>Three integrated tools designed to reduce prep time and maximize learning outcomes.</p>
+        </div>
+        <div className={styles.featureGrid}>
           {features.map((f, i) => (
-            <div key={i} className="col col--4">
-              <motion.div className={styles.card} whileHover={{ y: -10 }}>
-                <div className={styles.icon}>{f.icon}</div>
-                <h3>{f.title}</h3>
-                <p>{f.desc}</p>
-              </motion.div>
-            </div>
+            <motion.div
+              key={f.title}
+              className={styles.featureCard}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i * 0.5}
+              whileHover={{ y: -6 }}
+            >
+              <div className={styles.featureIllustration}>
+                {f.illustration}
+              </div>
+              <div className={styles.featureBody}>
+                <span className={styles.featureBadge}>{f.tag}</span>
+                <h3 className={styles.featureTitle}>{f.title}</h3>
+                <p className={styles.featureDesc}>{f.desc}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -134,35 +168,28 @@ function Features() {
 
 function Workflow() {
   return (
-    <section className={styles.team}>
-      <div className="container text--center">
-        <Heading as="h2">How It Works</Heading>
-
-        <div className="row margin-top--xl">
-          {[
-            {
-              title: 'Upload Textbook',
-              desc: 'Instructors upload open-source PDFs which are hashed and indexed.',
-              icon: '📘',
-            },
-            {
-              title: 'Generate Content',
-              desc: 'AI builds structured question banks and quiz-ready material.',
-              icon: '⚙️',
-            },
-            {
-              title: 'Teach with AI',
-              desc: 'Students interact with a course-aware AI tutor grounded in your content.',
-              icon: '🤖',
-            },
-          ].map((step, i) => (
-            <div key={i} className="col col--4">
-              <motion.div className={styles.teamCard} whileHover={{ scale: 1.05 }}>
-                <div className={styles.avatar}>{step.icon}</div>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </motion.div>
-            </div>
+    <section className={clsx(styles.section, styles.sectionAlt)}>
+      <div className="container">
+        <div className={styles.sectionHeader}>
+          <p className={styles.sectionEyebrow}>Simple process</p>
+          <Heading as="h2" className={styles.sectionTitle}>Up and running in minutes</Heading>
+        </div>
+        <div className={styles.stepsGrid}>
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.title}
+              className={styles.stepCard}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i * 0.5}
+            >
+              <div className={styles.stepNumber}>{step.number}</div>
+              <div className={styles.stepIconWrap}>{step.icon}</div>
+              <h3 className={styles.stepTitle}>{step.title}</h3>
+              <p className={styles.stepDesc}>{step.desc}</p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -171,35 +198,29 @@ function Workflow() {
 }
 
 function Team() {
-  const firstRow = team.slice(0, 2);
-  const secondRow = team.slice(2);
-
   return (
-    <section className={styles.team}>
-      <div className="container text--center">
-        <Heading as="h2">Meet the Team</Heading>
-
-        <div className="row margin-top--xl" style={{ justifyContent: 'center' }}>
-          {firstRow.map((member, i) => (
-            <div key={i} className="col col--3">
-              <motion.div className={styles.teamCard} whileHover={{ scale: 1.05 }}>
-                <img src={member.img} alt={member.name} className={styles.headshot} />
-                <h3>{member.name}</h3>
-                <p>{member.major}</p>
-              </motion.div>
-            </div>
-          ))}
+    <section className={styles.section}>
+      <div className="container">
+        <div className={styles.sectionHeader}>
+          <p className={styles.sectionEyebrow}>The builders</p>
+          <Heading as="h2" className={styles.sectionTitle}>Meet the team</Heading>
         </div>
-
-        <div className="row margin-top--lg" style={{ justifyContent: 'center' }}>
-          {secondRow.map((member, i) => (
-            <div key={i} className="col col--3">
-              <motion.div className={styles.teamCard} whileHover={{ scale: 1.05 }}>
-                <img src={member.img} alt={member.name} className={styles.headshot} />
-                <h3>{member.name}</h3>
-                <p>{member.major}</p>
-              </motion.div>
-            </div>
+        <div className={styles.teamGrid}>
+          {team.map((m, i) => (
+            <motion.div
+              key={m.name}
+              className={styles.teamCard}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i * 0.15}
+              whileHover={{ y: -4 }}
+            >
+              <img src={m.img} alt={m.name} className={styles.teamPhoto} />
+              <p className={styles.teamName}>{m.name}</p>
+              <p className={styles.teamRole}>{m.role}</p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -207,14 +228,33 @@ function Team() {
   );
 }
 
+function CTA() {
+  return (
+    <section className={styles.ctaSection}>
+      <div className="container">
+        <motion.div className={styles.ctaInner} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className={styles.ctaTitle}>Ready to transform your course?</h2>
+          <p className={styles.ctaSub}>Start generating questions and quizzes from your textbook today — no setup required.</p>
+          <div className={styles.heroActions}>
+            <Link className={styles.ctaPrimary} to="https://ai-teaching-tools-hosting.vercel.app" target="_blank" rel="noopener noreferrer">
+              Launch the Site <ArrowRight size={16} />
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
-    <Layout title="AI Teaching Platform">
+    <Layout title="AI Teaching Platform — Open Education Tools">
       <Hero />
       <main>
         <Features />
         <Workflow />
         <Team />
+        <CTA />
       </main>
     </Layout>
   );

@@ -46,14 +46,14 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
 
     colorMode: {
-      respectPrefersColorScheme: true,
+      disableSwitch: true,
     },
 
     navbar: {
       title: 'AI Teaching Tools',
       logo: {
         alt: 'AI Teaching Tools Logo',
-        src: 'img/ai-robot.webp',
+        src: '/ai-teaching-tools-docs/img/ai-teaching-tools-icon.png',
       },
       items: [
         {
