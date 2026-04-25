@@ -16,7 +16,7 @@ const features = [
     desc: 'Builds structured question banks from open-source textbooks, organized by chapter and section. One upload, hundreds of questions.',
     illustration: (
       <img
-        src="/ai-teaching-tools-docs/img/quiz-builder.png"
+        src="/ai-teaching-tools-docs/img/question_bank.png"
         alt="Quiz Builder screenshot"
         className={styles.featureScreenshot}
       />
