@@ -53,7 +53,7 @@ const config: Config = {
       title: 'AI Teaching Tools',
       logo: {
         alt: 'AI Teaching Tools Logo',
-        src: 'img/ai-robot.webp',
+        src: '/ai-teaching-tools-docs/img/ai-teaching-tools-icon.png',
       },
       items: [
         {
